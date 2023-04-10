@@ -29,13 +29,15 @@ func init() {
 }
 
 func main() {
+	flag.Parse()
+
 	horizon := horizonclient.DefaultPublicNetClient
 
 	if account == "" {
-		fmt.Println("Account to bump must be provided")
+		panic("Account to bump must be provided")
 	}
 	if privateKey == "" {
-		fmt.Println("Private key must be provided")
+		panic("Private key must be provided")
 	}
 
 	req := horizonclient.AccountRequest{
